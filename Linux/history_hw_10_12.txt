@@ -1,0 +1,7 @@
+   0 nano bashscript.sh
+   1 chmod u+x bashscript.sh
+   2 ls -l
+   3 ./bashscript.sh
+   4 history
+   5 export_file history_10_12.txt
+   6 history > history_hw_10_12.txt

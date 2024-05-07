@@ -1,0 +1,23 @@
+   0 mkdir /home/animals
+   1 mkdir /home/animals/dogs
+   2 mkdir /home/animals/cats
+   3 mkdir /home/animals/fish
+   4 tree /home/
+   5 touch /home/animals/cats/garfield
+   6 touch /home/animals/dogs/pluto
+   7 touch /home/animals/fish/nemo
+   8 tree/h
+   9 tree /home/
+  10 touch /tmp/adam
+  11 tree /tmp
+  12 mkdir -p /home/humans
+  13 cp /tmp/adam /home/humans
+  14 mkdir /tmp/evA
+  15 mv /tmp/evA /opt/eve
+  16 mv /opt/eve /home/humans
+  17 tree /home/
+  18 history_08
+  19 history_08_09 
+  20 export_file history_08_09.txt
+  21 history
+  22 history > history_hw_08_09.txt

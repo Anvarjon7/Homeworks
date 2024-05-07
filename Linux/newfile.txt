@@ -1,0 +1,11 @@
+AuthenticX86
+Sun Sep 24 12:14:20 UTC 2023
+33
+Filesystem                Size      Used Available Use% Mounted on
+/dev/root                 4.9G      2.3G      2.6G  47% /
+  12 date >> newfile.txt
+  13 ps -ef | tail -n +2 | wc -l >> newfile.txt
+  14 cat newfile.txt
+  15 df -h / >> newfile.txt
+  16 history | tail -n 5 >> newfile.txt
+33

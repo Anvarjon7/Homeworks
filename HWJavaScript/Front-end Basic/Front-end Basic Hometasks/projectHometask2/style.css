@@ -1,0 +1,15 @@
+img {
+    width: 50px;
+    height: 35px;
+    margin-left: 5px;
+}
+table {
+    border-collapse: collapse;
+    background-color: aqua;
+}
+td {
+    border: 3px double black;
+}   
+th {
+    border: 3px double  black;
+}

@@ -1,0 +1,38 @@
+
+.redSquare {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    margin: 10px;
+}
+.pinkSquare {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    margin: 10px;
+
+}
+.click {
+    width: 100px;
+    height: 100px;
+    background-color: greenyellow;
+}
+
+.changeColorOfSquare {
+    background-color: skyblue;
+}
+
+.square {
+    width: 150px;
+    height: 150px;
+    background-color: darkorange;
+    margin: 10px;
+}
+.active {
+    transform: scale(1.5);
+}
+button {
+    margin: 10px;
+}
+
+

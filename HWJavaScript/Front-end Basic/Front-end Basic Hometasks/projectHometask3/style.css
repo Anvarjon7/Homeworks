@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f5f5f5;
+  }
+  
+  .main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .main .form-container {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 40px 32px;
+    background-color: #fff;
+    box-shadow: 0px 20px 32px 0px rgba(96, 97, 112, 0.24), 0px 2px 8px 0px rgba(40, 41, 61, 0.08);
+  }
+  
+  .main .form-container h1 {
+    font-size: 21px;
+    margin-bottom: 24px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 28px;
+  }
+  
+  .main .form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main .form-container form input  {
+    border: 1px solid #FFE44D;
+    font-family: 'Nunito', sans-serif;
+    color: #1A1A1A;
+    padding: 14px 7px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    caret-color: #FFAA0D;
+    outline: none;
+  }
+  .main .form-container form .border-password {
+    border: 1px solid #CFD8DC;
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    outline: none;
+  }
+  .main .form-container form .about-text {
+    color: #7B8E98;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+  .about-button {
+    background-color:#FFE44D;
+  }
+  button {
+    padding: 14px 24px;
+    text-align: center;
+    font-family: 'Nunito', sans-serif; 
+    font-size: 16px;
+    border-radius: 55px;
+    margin-bottom: 8px;
+ } 
+ 
+  
+  .main .form-container {
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+  }
+  
+  .close-button button {
+    background-color:#fff;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    border: none;
+  }
