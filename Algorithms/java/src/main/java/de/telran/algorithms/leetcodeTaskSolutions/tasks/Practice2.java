@@ -3,11 +3,10 @@ package de.telran.algorithms.leetcodeTaskSolutions.tasks;
 public class Practice2 {
     public static void main(String[] args) {
 
-        int[] nums = {1, 0, 0, 1, 5};
-        int candidate = majorityElement(nums);
+        int[] nums = {7,1,5,3,6,4};
+        int candidate = maxProfit2(nums);
         System.out.println(candidate);
 
-        rotate(nums, 2);
     }
 
 //    TASK - Majority Element
@@ -42,4 +41,33 @@ public class Practice2 {
             end--;
         }
     }
+
+//    TASK - Best Time to Buy and Sell Stock
+
+    public static int maxProfit(int[] prices) {
+        int min_price = Integer.MAX_VALUE;
+        int max_profit = 0;
+        for (int price : prices) {
+            if (price < min_price) {
+                min_price = price;
+            } else if (price - min_price > max_profit) {
+                max_profit = price - min_price;
+            }
+        }
+        return max_profit;
+    }
+
+    //    TASK - Best Time to Buy and Sell Stock ||
+
+    public static int maxProfit2(int[] prices) {
+        int maximum = 0;
+
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                maximum += prices[i] - prices[i - 1];
+            }
+        }
+        return maximum;
+    }
+
 }
