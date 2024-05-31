@@ -1,10 +1,15 @@
 package de.telran.algorithms.leetcodeTaskSolutions.tasks;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Practice3 {
     public static void main(String[] args) {
-        int[] nums = {1,3,2,2,1};
+        int[] nums = {1, 3, 7, 2, 1};
         int b = canJump2(nums);
         System.out.println(b);
+
+        System.out.println(romanToInt("MMI"));
     }
 
 //  TASK -  Jump Game
@@ -13,11 +18,11 @@ public class Practice3 {
 
         int farthest = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (i > farthest){
+            if (i > farthest) {
                 return false;
             }
-            farthest = Math.max(farthest,i + nums[i]);
-            if (farthest >= nums.length - 1){
+            farthest = Math.max(farthest, i + nums[i]);
+            if (farthest >= nums.length - 1) {
                 return true;
             }
         }
@@ -33,11 +38,40 @@ public class Practice3 {
         int cur = 0;
         for (int i = 0; i < nums.length - 1; i++) {
             max = Math.max(max, i + nums[i]);
-            if (i == cur){
+            if (i == cur) {
                 jumps++;
                 cur = max;
             }
         }
         return jumps;
+    }
+
+//    TASK - Roman to Integer
+
+    private static int romanToInt(String s) {
+        Map<Character, Integer> romanToVal = new HashMap<>();
+        romanToVal.put('I', 1);
+        romanToVal.put('V', 5);
+        romanToVal.put('X', 10);
+        romanToVal.put('L', 50);
+        romanToVal.put('C', 100);
+        romanToVal.put('D', 500);
+        romanToVal.put('M', 1000);
+
+        int result = 0;
+        int prevVal = 0;
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char c = s.charAt(i);
+            int val = romanToVal.get(c);
+
+            if (val < prevVal) {
+                result -= val;
+            } else {
+                result += val;
+            }
+            prevVal = val;
+        }
+        return result;
     }
 }
