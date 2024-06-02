@@ -1,5 +1,6 @@
 package de.telran.algorithms.leetcodeTaskSolutions.tasks;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,7 +10,7 @@ public class Practice3 {
         int b = canJump2(nums);
         System.out.println(b);
 
-        System.out.println(intToRoman(2001));
+        System.out.println(hIndex(nums));
     }
 
 //  TASK -  Jump Game
@@ -92,5 +93,23 @@ public class Practice3 {
             }
         }
         return sb.toString();
+    }
+
+//    TASK -
+
+    private static int hIndex(int[] citations){
+
+        Arrays.sort(citations);
+        int n = citations.length;
+        int hIndex = 0;
+
+        for (int i = 0; i < n; i++) {
+            int h = n - i;
+            if (citations[i] >= h){
+                hIndex = h;
+                break;
+            }
+        }
+        return hIndex;
     }
 }
