@@ -1,6 +1,6 @@
 package de.telran.algorithms.leetcodeTaskSolutions.tasks;
 
-public class Solution {
+public class Practice1 {
     public static void main(String[] args) {
 
         int[] nums = {0, 1, 2, 4, 3, 2, 4, 2};
