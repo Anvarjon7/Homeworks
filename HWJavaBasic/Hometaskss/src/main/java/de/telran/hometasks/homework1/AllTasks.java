@@ -1,4 +1,4 @@
-package de.telran.hometasks.homework1;
+package Hometaskss.src.main.java.de.telran.hometasks.homework1;
 
 public class AllTasks {
 

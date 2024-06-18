@@ -1,4 +1,4 @@
-package de.telran.hometasks.homework3.task2;
+package Hometaskss.src.main.java.de.telran.hometasks.homework3.task2;
 
 public class CheckColba {
 

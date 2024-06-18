@@ -1,4 +1,4 @@
-package de.telran.hometasks.homework5;
+package Hometaskss.src.main.java.de.telran.hometasks.homework5;
 
 import java.util.Random;
 

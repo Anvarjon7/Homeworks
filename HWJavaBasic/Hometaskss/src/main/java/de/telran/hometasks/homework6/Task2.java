@@ -1,4 +1,4 @@
-package de.telran.hometasks.homework6;
+package Hometaskss.src.main.java.de.telran.hometasks.homework6;
 
 import java.util.Random;
 import java.util.Scanner;

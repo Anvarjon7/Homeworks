@@ -1,4 +1,4 @@
-package de.telran.hometasks.userinterface;
+package Hometaskss.src.main.java.de.telran.hometasks.userinterface;
 
 import java.util.Scanner;
 

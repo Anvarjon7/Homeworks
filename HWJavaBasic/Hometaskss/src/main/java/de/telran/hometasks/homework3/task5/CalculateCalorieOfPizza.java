@@ -1,6 +1,6 @@
-package de.telran.hometasks.homework3.task5;
+package Hometaskss.src.main.java.de.telran.hometasks.homework3.task5;
 
-import de.telran.hometasks.userinterface.UserInput;
+import Hometaskss.src.main.java.de.telran.hometasks.userinterface.UserInput;
 
 public class CalculateCalorieOfPizza {
     UserInput ui = new UserInput();

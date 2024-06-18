@@ -1,4 +1,4 @@
-package de.telran;
+package Hometaskss.src.main.java.de.telran;
 
 import java.util.Scanner;
 

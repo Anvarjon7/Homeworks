@@ -1,4 +1,4 @@
-package de.telran.hometasks.homework6;
+package Hometaskss.src.main.java.de.telran.hometasks.homework6;
 
 public class Task1 {
     public static void main(String[] args) {

@@ -7,7 +7,9 @@ public class Practice5 {
         System.out.println(lengthOfLastWord("Hello World"));
         System.out.println(longestCommonPrefix(words));
 
-        System.out.println(strStr("leetcode","o"));
+        System.out.println(strStr("leetcode", "o"));
+
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
     }
 
     private static int lengthOfLastWord(String s) {
@@ -35,7 +37,7 @@ public class Practice5 {
         return prefix;
     }
 
-    private static int strStr(String haystack,String needle) {
+    private static int strStr(String haystack, String needle) {
         if (haystack == null || needle == null) {
             return 0;
         }
@@ -55,6 +57,24 @@ public class Practice5 {
             }
         }
         return -1;
+    }
+
+    private static boolean isPalindrome(String s) {
+        if (s == null || s.isEmpty()) {
+            return true;
+        }
+
+        StringBuilder builder = new StringBuilder();
+
+        for (char c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                builder.append(Character.toLowerCase(c));
+            }
+        }
+
+        String filteredStr = builder.toString();
+
+        return filteredStr.contentEquals(builder.reverse());
     }
 
 }

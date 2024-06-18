@@ -1,8 +1,8 @@
-package de.telran.hometasks.homework2;
+package Hometaskss.src.main.java.de.telran.hometasks.homework2;
 
 
-import de.telran.hometasks.userinterface.UserInput;
-import de.telran.hometasks.userinterface.UserOutput;
+import Hometaskss.src.main.java.de.telran.hometasks.userinterface.UserInput;
+import Hometaskss.src.main.java.de.telran.hometasks.userinterface.UserOutput;
 
 public class CalculatorDemo {
     public static void main(String[] args) {
@@ -16,15 +16,15 @@ public class CalculatorDemo {
         double num2 = input.userDouble();
 
         output.printdata(
-                "resultOfAdd " + num1 + " + " + num2 + " = ", +calc.add(num1,num2));
+                "resultOfAdd " + num1 + " + " + num2 + " = ", +calc.add(num1, num2));
         output.printdata(
-                "resultOfSub " + num1 + " - " + num2 + " = ", +calc.sub(num1,num2));
+                "resultOfSub " + num1 + " - " + num2 + " = ", +calc.sub(num1, num2));
         output.printdata(
-                "resultOfMult " + num1 + " * " + num2 + " = ", +calc.mult(num1,num2));
+                "resultOfMult " + num1 + " * " + num2 + " = ", +calc.mult(num1, num2));
         output.printdata(
-                "resultOfDiv " + num1 + " / " + num2 + " = ", +calc.div(num1,num2));
+                "resultOfDiv " + num1 + " / " + num2 + " = ", +calc.div(num1, num2));
     }
-    }
+}
 
 
 

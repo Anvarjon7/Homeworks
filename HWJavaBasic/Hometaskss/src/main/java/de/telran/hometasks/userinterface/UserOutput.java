@@ -1,4 +1,4 @@
-package de.telran.hometasks.userinterface;
+package Hometaskss.src.main.java.de.telran.hometasks.userinterface;
 
 public class UserOutput {
     public void printdata(String message, Double dataPrint){

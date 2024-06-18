@@ -1,4 +1,4 @@
-package de.telran.hometasks.homework4;
+package Hometaskss.src.main.java.de.telran.hometasks.homework4;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package de.telran.hometasks.homework3.task4;
+package Hometaskss.src.main.java.de.telran.hometasks.homework3.task4;
 
 public class TimeTellerDemo {
     public static void main(String[] args) {
