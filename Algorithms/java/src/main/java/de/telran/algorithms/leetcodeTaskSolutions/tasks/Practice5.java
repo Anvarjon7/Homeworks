@@ -1,5 +1,7 @@
 package de.telran.algorithms.leetcodeTaskSolutions.tasks;
 
+import java.util.List;
+
 public class Practice5 {
     public static void main(String[] args) {
 
@@ -10,6 +12,8 @@ public class Practice5 {
         System.out.println(strStr("leetcode", "o"));
 
         System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+
+        System.out.println(isSubsequence("abc","ahbgdc"));
     }
 
     private static int lengthOfLastWord(String s) {
@@ -76,6 +80,23 @@ public class Practice5 {
 
         return filteredStr.contentEquals(builder.reverse());
     }
+
+    private static boolean isSubsequence(String a, String b) {
+        if (a == null || b == null) {
+            return false;
+        }
+        int aIndex = 0;
+        int bIndex = 0;
+
+        while(aIndex < a.length() && bIndex < b.length()) {
+            if (a.charAt(aIndex) == b.charAt(bIndex)){
+                aIndex++;
+            }
+            bIndex++;
+        }
+        return aIndex == a.length();
+    }
+
 
 }
 
