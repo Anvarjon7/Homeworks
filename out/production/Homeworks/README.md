@@ -1,2 +1,0 @@
-# HomeTasksJava
-Basic course Java
