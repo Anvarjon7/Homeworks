@@ -14,6 +14,10 @@ public class Practice5 {
         System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
 
         System.out.println(isSubsequence("abc","ahbgdc"));
+
+        System.out.println(canConstruct("ab","ahbgdc"));
+
+        System.out.println(getCount("abracadabra"));
     }
 
     private static int lengthOfLastWord(String s) {
@@ -96,6 +100,38 @@ public class Practice5 {
         }
         return aIndex == a.length();
     }
+
+
+    private static boolean canConstruct(String ransomNote, String magazine) {
+
+        int[] magazineCount = new int[26];
+        for (char c : magazine.toCharArray()){
+            magazineCount[c - 'a']++;
+        }
+
+        for (char c : ransomNote.toCharArray()){
+            if (magazineCount[c - 'a'] == 0){
+                return false;
+            }
+            magazineCount[c - 'a']--;
+        }
+        return true;
+    }
+
+    private static int getCount(String str){
+
+        int count = 0;
+
+        String vowels = "aeiou";
+
+        for (char c : str.toCharArray()){
+            if (vowels.contains(String.valueOf(c))){
+                count++;
+            }
+        }
+        return count;
+    }
+
 
 
 }

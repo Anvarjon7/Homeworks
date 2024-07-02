@@ -58,4 +58,5 @@ public class Practice1 {
         return dummy.next;
     }
 
+
 }
