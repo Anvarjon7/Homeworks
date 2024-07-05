@@ -11,6 +11,11 @@ public class Practice6 {
 
         System.out.println(isIsomorphic(s,t));
 
+        String pattern = "abba";
+        String str = "dog cat cat dog";
+
+        System.out.println(wordPattern(pattern,str));
+
     }
 
     private static boolean isIsomorphic(String s, String t) {
@@ -37,6 +42,33 @@ public class Practice6 {
             }else {
                 mapTS.put(c2, c1);
             }
+        }
+        return true;
+    }
+
+    private static boolean wordPattern(String pattern, String s) {
+
+        String[] words = s.split(" ");
+        if(pattern.length() != words.length) return false;
+
+        Map<Character, String> patternToWord = new HashMap<>();
+        Map<String, Character> wordToPattern = new HashMap<>();
+
+        for (int i = 0; i < pattern.length(); i++) {
+            char c = pattern.charAt(i);
+            String w = words[i];
+
+            if(patternToWord.containsKey(c)){
+                if (!patternToWord.get(c).equals(w)){
+                    return false;
+                }
+            }else {
+                if (wordToPattern.containsKey(w)){
+                    return false;
+                }
+            }
+            patternToWord.put(c, w);
+            wordToPattern.put(w,c);
         }
         return true;
     }

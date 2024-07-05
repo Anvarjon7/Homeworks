@@ -5,8 +5,12 @@ import java.util.Arrays;
 public class Practice2 {
     public static void main(String[] args) {
 
-        int[] arr = {2334454,5};
+        int[] arr = {2334454, 5};
         System.out.println(Arrays.toString(minMax(arr)));
+
+        int a = -1;
+        int b = 2;
+        System.out.println(getSum(a,b));
 
     }
 
@@ -22,5 +26,19 @@ public class Practice2 {
             }
         }
         return new int[]{min, max};
+    }
+
+    private static int getSum(int a, int b) {
+
+        int min = Math.min(a, b);
+        int max = Math.max(a, b);
+
+        int sum = 0;
+
+        for (int i = min; i <= max; i++) {
+            sum += i;
+        }
+
+        return sum;
     }
 }
