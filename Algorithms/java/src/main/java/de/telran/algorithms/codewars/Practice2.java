@@ -12,6 +12,10 @@ public class Practice2 {
         int b = 2;
         System.out.println(getSum(a,b));
 
+        double weight = 85.0;
+        double height = 165.0;
+        System.out.println(bmi(weight,height));
+
     }
 
     private static int[] minMax(int[] arr) {
@@ -40,5 +44,22 @@ public class Practice2 {
         }
 
         return sum;
+    }
+
+    private static String bmi(double weight, double height) {
+
+        double result = weight/(height * height);
+
+        if (result <= 18.5) {
+            return "Underweight";
+        }
+        else if (result <= 25.0) {
+            return "Normal";
+        }
+        else if (result <= 30.0) {
+            return "Overweight";
+        }
+
+        return "Obese";
     }
 }
