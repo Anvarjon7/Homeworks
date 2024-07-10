@@ -20,7 +20,7 @@ public class Practice6 {
         String sA = "anagram";
         String sB = "nagaram";
 
-        System.out.println(isAnagram(sA, sB));
+        System.out.println(isAnagram( sA, sB));
 
     }
 
@@ -89,5 +89,19 @@ public class Practice6 {
         Arrays.sort(tArr);
 
         return Arrays.equals(sArr,tArr);
+    }
+
+    private static int[] twoSum(int[] nums, int target){
+
+        Map<Integer,Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int comp = target - nums[i];
+            if (map.containsKey(comp)){
+                return new int[] {map.get(comp), i};
+            }
+            map.put(nums[i],i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
     }
 }

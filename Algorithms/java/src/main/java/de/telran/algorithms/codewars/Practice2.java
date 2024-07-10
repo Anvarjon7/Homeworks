@@ -12,8 +12,8 @@ public class Practice2 {
         int b = 2;
         System.out.println(getSum(a,b));
 
-        double weight = 85.0;
-        double height = 165.0;
+        double weight = 95.0;
+        double height = 172.0;
         System.out.println(bmi(weight,height));
 
     }
@@ -62,4 +62,14 @@ public class Practice2 {
 
         return "Obese";
     }
+
+    private static boolean isSquare(int n) {
+        if(n < 0 ) return false;
+
+        int sqrt =(int) Math.sqrt(n);
+
+        return sqrt * sqrt == n;
+    }
+
+
 }
