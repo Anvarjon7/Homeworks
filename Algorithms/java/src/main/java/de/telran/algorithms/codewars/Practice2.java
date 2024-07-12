@@ -1,6 +1,8 @@
 package de.telran.algorithms.codewars;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Practice2 {
     public static void main(String[] args) {
@@ -15,6 +17,10 @@ public class Practice2 {
         double weight = 95.0;
         double height = 172.0;
         System.out.println(bmi(weight,height));
+
+        System.out.println(nbYear(1000,0.02,50,2000));
+
+        System.out.println(isHappy(22));
 
     }
 
@@ -69,6 +75,42 @@ public class Practice2 {
         int sqrt =(int) Math.sqrt(n);
 
         return sqrt * sqrt == n;
+    }
+
+    private static int nbYear(int p0, double percent, int aug, int p){
+
+        if(p0 < 0 || percent < 0.0 || p < 0) return -1;
+
+        int years = 0;
+        while (p0 <= p){
+            p0 += (int) (p0 * percent / 100.0 + aug);
+            years++;
+        }
+
+        return years;
+    }
+
+    private static boolean isHappy(int n){
+
+        Set<Integer> seen = new HashSet<>();
+
+        while (n != 1 && !seen.contains(n)){
+            seen.add(n);
+            n = getNext(n);
+        }
+        return n == 1;
+    }
+
+    private static int getNext(int n) {
+
+        int total = 0;
+
+        while (n > 0){
+            int digit = n % 10;
+            total += digit * digit;
+            n /= 10;
+        }
+        return total;
     }
 
 
