@@ -22,6 +22,8 @@ public class Practice2 {
 
         System.out.println(isHappy(22));
 
+        System.out.println(rps("rock","scissors"));
+
     }
 
     private static int[] minMax(int[] arr) {
@@ -113,5 +115,18 @@ public class Practice2 {
         return total;
     }
 
+    private static String rps(String p1, String p2) {
+        if (p1.equals(p2)) {
+            return "Draw!";
+        }
+
+        return switch (p1) {
+            case "rock" -> p2.equals("scissors") ? "Player 1 won!" : "Player 2 won!";
+            case "paper" -> p2.equals("rock") ? "Player 1 won!" : "Player 2 won!";
+            case "scissors" -> p2.equals("paper") ? "Player 1 won!" : "Player 2 won!";
+            default -> "Invalid input!";
+        };
+
+    }
 
 }
