@@ -104,4 +104,18 @@ public class Practice6 {
         }
         throw new IllegalArgumentException("No two sum solution");
     }
+
+    private static boolean containsNearbyDuplicate(int[] nums,int k) {
+        if (nums.length < 2) return false;
+
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i])) {
+                int lastIndex = map.get(nums[i]);
+                if (i - lastIndex <= k) return true;
+            }
+            map.put(nums[i],i);
+        }
+        return false;
+    }
 }

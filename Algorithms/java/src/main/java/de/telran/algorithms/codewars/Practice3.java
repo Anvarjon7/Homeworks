@@ -6,6 +6,8 @@ public class Practice3 {
         String str = "Hello World";
 
         System.out.println(toAlternativeString(str));
+
+        System.out.println(isPlural(1f));
     }
 
     private static String toAlternativeString(String str) {
@@ -43,5 +45,9 @@ public class Practice3 {
             }
         }
         return max;
+    }
+
+    private static boolean isPlural(float f){
+        return f == 1 ? false : true;
     }
 }
