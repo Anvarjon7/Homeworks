@@ -1,5 +1,7 @@
 package de.telran.algorithms.codewars;
 
+import java.util.ArrayList;
+
 public class Practice3 {
     public static void main(String[] args) {
 
@@ -8,6 +10,10 @@ public class Practice3 {
         System.out.println(toAlternativeString(str));
 
         System.out.println(isPlural(1f));
+
+        final String name = "Anwar";
+
+        System.out.println(reverseLetter(name));
     }
 
     private static String toAlternativeString(String str) {
@@ -50,4 +56,26 @@ public class Practice3 {
     private static boolean isPlural(float f){
         return f == 1 ? false : true;
     }
+
+    private static int countPeoples(ArrayList<int[]> stops){
+        int count = 0;
+        for (int[] stop : stops) {
+            count += stop[0];
+            count -= stop[1];
+        }
+        return Math.max(count, 0);
+    }
+
+    private static String reverseLetter(final String str){
+
+        StringBuilder reversed = new StringBuilder();
+        for (char c : str.toCharArray()) {
+            if (Character.isLetter(c)){
+                reversed.append(c);
+            }
+        }
+
+        return reversed.reverse().toString();
+    }
+
 }
