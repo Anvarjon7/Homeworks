@@ -1,6 +1,6 @@
 package de.telran.algorithms.codewars;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Practice3 {
     public static void main(String[] args) {
@@ -14,6 +14,10 @@ public class Practice3 {
         final String name = "Anwar";
 
         System.out.println(reverseLetter(name));
+
+        int[] a = {1, 2, 2, 2, 3};
+
+        System.out.println(Arrays.toString(arrayDiff(a, new int[]{2})));
     }
 
     private static String toAlternativeString(String str) {
@@ -53,11 +57,11 @@ public class Practice3 {
         return max;
     }
 
-    private static boolean isPlural(float f){
+    private static boolean isPlural(float f) {
         return f == 1 ? false : true;
     }
 
-    private static int countPeoples(ArrayList<int[]> stops){
+    private static int countPeoples(ArrayList<int[]> stops) {
         int count = 0;
         for (int[] stop : stops) {
             count += stop[0];
@@ -66,16 +70,40 @@ public class Practice3 {
         return Math.max(count, 0);
     }
 
-    private static String reverseLetter(final String str){
+    private static String reverseLetter(final String str) {
 
         StringBuilder reversed = new StringBuilder();
         for (char c : str.toCharArray()) {
-            if (Character.isLetter(c)){
+            if (Character.isLetter(c)) {
                 reversed.append(c);
             }
         }
 
         return reversed.reverse().toString();
     }
+
+    public static int[] arrayDiff(int[] a, int[] b) {
+
+        Set<Integer> setB = new HashSet<>();
+        for (int num : b) {
+            setB.add(num);
+        }
+
+        List<Integer> resultList = new ArrayList<>();
+
+        for (int num : a) {
+            if (!setB.contains(num)) {
+                resultList.add(num);
+            }
+        }
+
+        int[] result = new int[resultList.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = resultList.get(i);
+        }
+
+        return result;
+    }
+
 
 }
