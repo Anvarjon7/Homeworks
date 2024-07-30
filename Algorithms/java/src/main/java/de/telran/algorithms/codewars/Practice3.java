@@ -17,7 +17,7 @@ public class Practice3 {
 
         int[] a = {1, 2, 2, 2, 3};
 
-        System.out.println(Arrays.toString(arrayDiff(a, new int[]{2})));
+        System.out.println(Arrays.toString(arrayDiff2(a, new int[]{2})));
     }
 
     private static String toAlternativeString(String str) {
@@ -106,4 +106,27 @@ public class Practice3 {
     }
 
 
+    private static int[] arrayDiff2(int[] a, int[] b) {
+
+        List<Integer> output = new ArrayList();
+
+        for (int i = 0; i < a.length; i++) {
+            boolean flag = false;
+            for (int j = 0; j < b.length; j++) {
+                if (a[i] == b[j]){
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag){
+                output.add(a[i]);
+            }
+        }
+        int[] result = new int[output.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = output.get(i);
+        }
+
+        return result;
+    }
 }
