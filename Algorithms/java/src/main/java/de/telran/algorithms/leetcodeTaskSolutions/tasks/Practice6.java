@@ -18,10 +18,13 @@ public class Practice6 {
         String sA = "anagram";
         String sB = "nagaram";
 
-        System.out.println(isAnagram( sA, sB));
+        System.out.println(isAnagram(sA, sB));
 
-        int[] nums = {0,1,2,4,5,7};
+        int[] nums = {0, 1, 2, 4, 5, 7};
         System.out.println(summaryRanges(nums));
+
+        String ss = "(){}[]";
+        System.out.println(isValid(ss));
 
     }
 
@@ -89,38 +92,38 @@ public class Practice6 {
         Arrays.sort(sArr);
         Arrays.sort(tArr);
 
-        return Arrays.equals(sArr,tArr);
+        return Arrays.equals(sArr, tArr);
     }
 
-    private static int[] twoSum(int[] nums, int target){
+    private static int[] twoSum(int[] nums, int target) {
 
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {
             int comp = target - nums[i];
-            if (map.containsKey(comp)){
-                return new int[] {map.get(comp), i};
+            if (map.containsKey(comp)) {
+                return new int[]{map.get(comp), i};
             }
-            map.put(nums[i],i);
+            map.put(nums[i], i);
         }
         throw new IllegalArgumentException("No two sum solution");
     }
 
-    private static boolean containsNearbyDuplicate(int[] nums,int k) {
+    private static boolean containsNearbyDuplicate(int[] nums, int k) {
         if (nums.length < 2) return false;
 
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(nums[i])) {
                 int lastIndex = map.get(nums[i]);
                 if (i - lastIndex <= k) return true;
             }
-            map.put(nums[i],i);
+            map.put(nums[i], i);
         }
         return false;
     }
 
-    private static List<String> summaryRanges(int[] nums){
+    private static List<String> summaryRanges(int[] nums) {
 
 //        Arrays.sort(nums);
         List<String> result = new ArrayList<>();
@@ -145,5 +148,28 @@ public class Practice6 {
         }
 
         return result;
+    }
+
+
+    private static boolean isValid(String s) {
+
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+            }
+            char top = stack.pop();
+            if ((c == ')' && top != '(') ||
+                    (c == '}' && top != '{') ||
+                    (c == ']' && top != '[')) {
+                return false;
+            }
+        }
+        return stack.isEmpty();
     }
 }
