@@ -12,12 +12,7 @@ public class ListNode {
         next = null;
     }
 
-    ListNode(){};
 
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
 
 
     private static ListNode deserialize(String data) {

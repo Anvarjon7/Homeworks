@@ -18,10 +18,10 @@ public class Practice5 {
         System.out.println(recursiveSum(arr));
         System.out.println(findSum(arr));
 
-        Listnode head = new Listnode(3);
-        head.next.next = new Listnode(2);
-        head.next.next.next = new Listnode(0);
-        head.next.next.next.next = new Listnode(-4);
+//        Listnode head = new Listnode(3);
+//        head.next.next = new Listnode(2);
+//        head.next.next.next = new Listnode(0);
+//        head.next.next.next.next = new Listnode(-4);
 
 //        System.out.println(Listnode.hasCycle(head));
 
@@ -188,6 +188,13 @@ public class Practice5 {
         }else {
             return binarySearchHelper(arr,item, mid + 1, high);
         }
+    }
+
+    private static boolean solution(String str, String ending){
+
+
+
+        return str.endsWith(ending);
     }
 
 
