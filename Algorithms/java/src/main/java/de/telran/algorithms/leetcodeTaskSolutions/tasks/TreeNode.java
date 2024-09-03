@@ -1,8 +1,5 @@
 package de.telran.algorithms.leetcodeTaskSolutions.tasks;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-
 public class TreeNode {
 
     int val;
@@ -36,6 +33,17 @@ class Solution{
      if (p.val != q.val) return false;
 
      return isSame(p.left, q.left) && isSame(p.right, q.right);
+    }
+
+    private static TreeNode invertTree(TreeNode root){
+        if (root == null) return null;
+
+        TreeNode left = invertTree(root.left);
+
+        root.left = invertTree(root.right);
+        root.right = left;
+
+        return root;
 
     }
 
