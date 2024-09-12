@@ -58,6 +58,29 @@ class Solution{
         return hasPathSum(root.left, newTargetSum) || hasPathSum(root.right, newTargetSum);
     }
 
+    private static int count(TreeNode root){
+        if (root == null) return 0;
+
+        int leftHeight = getHeight(root.left);
+        int rightHeight = getHeight(root.right);
+
+        if (leftHeight == rightHeight){
+            return (1 << leftHeight) + count(root.right);
+        }else {
+            return (1 << rightHeight) + count(root.left);
+        }
+    }
+
+    private static int getHeight(TreeNode root){
+        int height = 0;
+
+        while (root != null){
+            height++;
+            root = root.left;
+        }
+        return height;
+    }
+
 
     public static void main(String[] args) {
 
