@@ -1,5 +1,10 @@
 package de.telran.algorithms.leetcodeTaskSolutions.tasks;
 
+import com.sun.source.tree.Tree;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class TreeNode {
 
     int val;
@@ -79,6 +84,38 @@ class Solution{
             root = root.left;
         }
         return height;
+    }
+
+    static int preOrderIndex;
+    static Map<Integer,Integer> inOrderMap;
+    private static TreeNode buildTree(int[] preOrder, int[] inOrder){
+
+        inOrderMap = new HashMap<>();
+
+
+        for (int i = 0; i < inOrder.length; i++) {
+                inOrderMap.put(inOrder[i], i);
+        }
+
+        preOrderIndex = 0;
+
+        return builtTreeRecursive(preOrder,0,inOrder.length - 1);
+    }
+
+    private static TreeNode builtTreeRecursive(int[] preOrder, int left,int right){
+        if (left > right){
+            return null;
+        }
+
+        int rootValue = preOrder[preOrderIndex++];
+
+        TreeNode root = new TreeNode(rootValue);
+        int inOrderIndex = inOrderMap.get(rootValue);
+
+        root.left = builtTreeRecursive(preOrder, left, inOrderIndex -1);
+        root.right = builtTreeRecursive(preOrder, inOrderIndex + 1, right);
+
+        return root;
     }
 
 
