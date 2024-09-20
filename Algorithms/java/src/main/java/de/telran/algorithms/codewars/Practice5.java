@@ -2,6 +2,8 @@ package de.telran.algorithms.codewars;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Practice5 {
     public static void main(String[] args) {
@@ -17,6 +19,11 @@ public class Practice5 {
 
         System.out.println(recursiveSum(arr));
         System.out.println(findSum(arr));
+
+        System.out.println(isPangramm("You shall not pass!"));
+
+        double[] s = {1,1,1};
+        System.out.println(Arrays.toString(tribonacci(s , 10)));
 
 //        Listnode head = new Listnode(3);
 //        head.next.next = new Listnode(2);
@@ -139,7 +146,7 @@ public class Practice5 {
         return arr[index] + recursiveSumHelp(arr, index + 1);
     }
 
-    private static int findSum(int[] arr){
+    private static int findSum(int[] arr) {
 
         int sum = arr[0];
 
@@ -150,54 +157,69 @@ public class Practice5 {
         return sum;
     }
 
-    private static int sum(int[] arr){
+    private static int sum(int[] arr) {
         return recursiveMax(arr, 0, arr[0]);
     }
 
-    private static int recursiveMax(int[] arr, int index, int max){
+    private static int recursiveMax(int[] arr, int index, int max) {
 
-        if (index >= arr.length){
+        if (index >= arr.length) {
             return max;
         }
 
-        if (arr[index] > max){
+        if (arr[index] > max) {
             max = arr[index];
         }
 
         return recursiveMax(arr, index + 1, max);
     }
 
-    private static int recursiveBinarySearch(int[] list, int item){
+    private static int recursiveBinarySearch(int[] list, int item) {
         return binarySearchHelper(list, item, 0, list.length - 1);
     }
 
 
-    private static int binarySearchHelper(int[] arr, int item, int low, int high){
+    private static int binarySearchHelper(int[] arr, int item, int low, int high) {
 
-        if (low > high){
+        if (low > high) {
             return low;
         }
 
         int mid = low + (high - low) / 2;
         int guess = arr[mid];
 
-        if (guess == item){
+        if (guess == item) {
             return mid;
         } else if (guess > item) {
-            return binarySearchHelper(arr,item, low, mid - 1);
-        }else {
-            return binarySearchHelper(arr,item, mid + 1, high);
+            return binarySearchHelper(arr, item, low, mid - 1);
+        } else {
+            return binarySearchHelper(arr, item, mid + 1, high);
         }
     }
 
-    private static boolean solution(String str, String ending){
-
+    private static boolean solution(String str, String ending) {
 
 
         return str.endsWith(ending);
     }
 
+    private static boolean isPangramm(String sentence) {
 
+        return sentence.chars().map(Character::toLowerCase).filter(Character::isAlphabetic).distinct().count() == 26;
+    }
+
+    private static double[] tribonacci(double[] s, int n){
+        if (n == 0) return new double[0];
+        if (n <=3) return Arrays.copyOf(s,n);
+        double[] tri = new double[n];
+        System.arraycopy(s,0, tri,0,3);
+
+        for (int i = 3; i < n; i++) {
+            tri[i] = tri[i - 1] + tri[i - 2] + tri[i - 3];
+        }
+
+        return tri;
+    }
 
 
 }
