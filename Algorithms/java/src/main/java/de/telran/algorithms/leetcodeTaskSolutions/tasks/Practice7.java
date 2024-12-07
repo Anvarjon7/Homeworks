@@ -41,20 +41,60 @@ public class Practice7 {
 
         int count = 0;
 
-        for (char c : word.toCharArray()){
-            if (Character.isLowerCase(c)){
+        for (char c : word.toCharArray()) {
+            if (Character.isLowerCase(c)) {
                 lower.add(c);
             } else if (Character.isUpperCase(c)) {
                 upper.add(Character.toLowerCase(c));
             }
         }
 
-        for (char c : lower){
-            if (upper.contains(c)){
+        for (char c : lower) {
+            if (upper.contains(c)) {
                 count++;
             }
         }
 
         return count;
+    }
+
+
+    private static int numOfSpecialChars(String word) {
+
+        int specialCount = 0;
+
+        // Create a set of unique lowercase letters in the word
+        Set<Character> uniqueLetters = new HashSet<>();
+        for (char c : word.toCharArray()) {
+            uniqueLetters.add(Character.toLowerCase(c));
+        }
+
+        // Check each letter in the unique set
+        for (char letter : uniqueLetters) {
+            char lower = Character.toLowerCase(letter);
+            char upper = Character.toUpperCase(letter);
+
+            // Check if both lowercase and uppercase exist in the word
+            if (word.indexOf(lower) != -1 && word.indexOf(upper) != -1) {
+                // Flag to ensure all lowercase occur before uppercase
+                boolean isSpecial = true;
+
+                boolean upperSeen = false;
+                for (char c : word.toCharArray()) {
+                    if (c == upper) {
+                        upperSeen = true; // Mark uppercase occurrence
+                    } else if (c == lower && upperSeen) {
+                        isSpecial = false; // Lowercase occurs after uppercase
+                        break;
+                    }
+                }
+
+                if (isSpecial) {
+                    specialCount++;
+                }
+            }
+        }
+
+        return specialCount;
     }
 }
