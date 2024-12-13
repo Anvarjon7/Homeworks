@@ -18,6 +18,8 @@ public class Easy2 {
         int[] heights = {1,1,4,2,1,3};
 
         System.out.println(heightChecker(heights));
+
+        System.out.println(Arrays.toString(diStringMatch("IDID")));
     }
 
 
@@ -109,6 +111,63 @@ public class Easy2 {
         }
 
         return nums;
+    }
+
+    private static List<Integer> luckyNumbers(int[][] matrix){
+
+        List<Integer> lucky = new ArrayList<>();
+
+        int[] rowMins = new int[matrix.length];
+
+        for (int i = 0; i < matrix.length; i++) {
+            int min = matrix[i][0];
+            for (int j = 1; j < matrix[i].length; j++) {
+                if (matrix[i][j] < min){
+                    min = matrix[i][j];
+                }
+            }
+            rowMins[i] = min;
+        }
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] == rowMins[i]){
+                    boolean isMaxInCol = true;
+                    for (int k = 0; k < matrix.length; k++) {
+                        if (matrix[k][j] > matrix[i][j]){
+                            isMaxInCol = false;
+                            break;
+                        }
+                    }
+                    if (isMaxInCol){
+                        lucky.add(matrix[i][j]);
+                    }
+                }
+            }
+        }
+
+        return lucky;
+    }
+
+    private static int[] diStringMatch(String s){
+
+        int[] perm = new int[s.length() + 1];
+        Stack<Integer> stack = new Stack<>();
+
+        int index = 0;
+
+
+        for (int i = 0; i <= s.length(); i++) {
+            stack.push(i);
+
+            if (i == s.length() || s.charAt(i) == 'I'){
+                while (!stack.isEmpty()){
+                    perm[index++] = stack.pop();
+                }
+            }
+        }
+
+        return perm;
     }
 
 
