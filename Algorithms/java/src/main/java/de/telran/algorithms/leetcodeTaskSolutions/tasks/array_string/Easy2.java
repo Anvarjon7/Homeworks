@@ -15,11 +15,13 @@ public class Easy2 {
 //
 //        System.out.println(selfDividingNums);
 
-        int[] heights = {1,1,4,2,1,3};
+        int[] heights = {1,2,2,3};
 
         System.out.println(heightChecker(heights));
 
         System.out.println(Arrays.toString(diStringMatch("IDID")));
+
+        System.out.println(isMonotonic(heights));
     }
 
 
@@ -168,6 +170,26 @@ public class Easy2 {
         }
 
         return perm;
+    }
+
+
+    private static boolean isMonotonic(int[] nums){
+
+        boolean isIncreasing = false;
+        boolean isDecreasing = false;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] < nums[i + 1]){
+                isIncreasing = true;
+            }
+            if (nums[i] > nums[i + 1]){
+                isDecreasing = true;
+            }
+            if (isDecreasing && isIncreasing){
+                return false;
+            }
+        }
+        return true;
     }
 
 
