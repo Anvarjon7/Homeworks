@@ -9,7 +9,7 @@ public class EasyTasks {
         int[] nums2 = {2, 4, 8, 8, 8,};
 //        merge(nums1, 3, nums2, 3);
 
-
+        System.out.println(addBinary("11","1"));
 
 //        System.out.println(removeElement(nums1,3));
 //        System.out.println(Arrays.toString(nums1));
@@ -75,6 +75,34 @@ public class EasyTasks {
             count += (num == candidate) ? 1 : -1;
         }
         return candidate;
+    }
+
+    private static String addBinary(String a,String b){
+        StringBuilder result = new StringBuilder();
+
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int carry = 0;
+
+        while (i >= 0 || j >= 0 || carry != 0){
+            int sum = carry;
+
+            if (i >= 0){
+                sum += a.charAt(i) - '0';
+                i--;
+            }
+
+            if (j >= 0){
+                sum += b.charAt(j) - '0';
+                j--;
+            }
+
+            carry = sum / 2;
+            result.append(sum % 2);
+
+        }
+
+        return result.reverse().toString();
     }
 
 
