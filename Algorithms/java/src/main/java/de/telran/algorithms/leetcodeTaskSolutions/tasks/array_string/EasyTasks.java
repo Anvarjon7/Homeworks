@@ -15,6 +15,8 @@ public class EasyTasks {
 //        System.out.println(Arrays.toString(nums1));
         System.out.println(majorityElem(nums2));
 
+        System.out.println(convertToTitle(28));
+
     }
 
     private static void merge(int[] num1, int n, int[] num2, int m) {
@@ -105,5 +107,20 @@ public class EasyTasks {
         return result.reverse().toString();
     }
 
+    private static String convertToTitle(int columnNumber){
+
+        StringBuilder columnTitle = new StringBuilder();
+
+        while (columnNumber > 0){
+
+            int remainder = (columnNumber - 1) % 26;
+
+            columnTitle.append((char) ('A' + remainder));
+
+            columnNumber = (columnNumber - 1) / 26;
+        }
+
+        return columnTitle.reverse().toString();
+    }
 
 }
