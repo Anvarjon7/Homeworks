@@ -1,6 +1,6 @@
 package de.telran.algorithms.leetcodeTaskSolutions.tasks.array_string;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class EasyTasks {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class EasyTasks {
         int[] nums2 = {2, 4, 8, 8, 8,};
 //        merge(nums1, 3, nums2, 3);
 
-        System.out.println(addBinary("11","1"));
+        System.out.println(addBinary("11", "1"));
 
 //        System.out.println(removeElement(nums1,3));
 //        System.out.println(Arrays.toString(nums1));
@@ -42,11 +42,11 @@ public class EasyTasks {
         }
     }
 
-    private static int removeElement(int[] nums, int val){
+    private static int removeElement(int[] nums, int val) {
 
         int k = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != val){
+            if (nums[i] != val) {
                 nums[k] = nums[i];
                 k++;
             }
@@ -54,12 +54,12 @@ public class EasyTasks {
         return k;
     }
 
-    private static int removeDuplicates(int[] nums){
+    private static int removeDuplicates(int[] nums) {
 
         int k = 1;
 
         for (int i = 1; i < nums.length; i++) {
-            if (nums[i] != nums[k - 1]){
+            if (nums[i] != nums[k - 1]) {
                 nums[k] = nums[i];
                 k++;
             }
@@ -67,11 +67,11 @@ public class EasyTasks {
         return k;
     }
 
-    private static int majorityElem(int[] nums){
+    private static int majorityElem(int[] nums) {
         int count = 0;
         int candidate = nums[0];
-        for (int num : nums){
-            if (count == 0){
+        for (int num : nums) {
+            if (count == 0) {
                 candidate = num;
             }
             count += (num == candidate) ? 1 : -1;
@@ -79,22 +79,22 @@ public class EasyTasks {
         return candidate;
     }
 
-    private static String addBinary(String a,String b){
+    private static String addBinary(String a, String b) {
         StringBuilder result = new StringBuilder();
 
         int i = a.length() - 1;
         int j = b.length() - 1;
         int carry = 0;
 
-        while (i >= 0 || j >= 0 || carry != 0){
+        while (i >= 0 || j >= 0 || carry != 0) {
             int sum = carry;
 
-            if (i >= 0){
+            if (i >= 0) {
                 sum += a.charAt(i) - '0';
                 i--;
             }
 
-            if (j >= 0){
+            if (j >= 0) {
                 sum += b.charAt(j) - '0';
                 j--;
             }
@@ -107,11 +107,11 @@ public class EasyTasks {
         return result.reverse().toString();
     }
 
-    private static String convertToTitle(int columnNumber){
+    private static String convertToTitle(int columnNumber) {
 
         StringBuilder columnTitle = new StringBuilder();
 
-        while (columnNumber > 0){
+        while (columnNumber > 0) {
 
             int remainder = (columnNumber - 1) % 26;
 
@@ -122,5 +122,41 @@ public class EasyTasks {
 
         return columnTitle.reverse().toString();
     }
+
+    private static String[] findWords(String[] words) {
+
+        Set<Character> row1 = new HashSet<>(Arrays.asList('q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'));
+        Set<Character> row2 = new HashSet<>(Arrays.asList('a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'));
+        Set<Character> row3 = new HashSet<>(Arrays.asList('z', 'x', 'c', 'v', 'b', 'n', 'n', 'm'));
+
+        List<String> result = new ArrayList<>();
+
+        for (String word : words) {
+            String lower = word.toLowerCase();
+
+            Set<Character> targetRow = null;
+            if (row1.contains(lower.charAt(0))) {
+                targetRow = row1;
+            } else if (row2.contains(lower.charAt(0))) {
+                targetRow = row2;
+            } else if (row3.contains(lower.charAt(0))) {
+                targetRow = row3;
+            }
+
+            boolean isValid = true;
+            for (char c : lower.toCharArray()) {
+                if (!targetRow.contains(c)) {
+                    isValid = false;
+                    break;
+                }
+            }
+
+            if (isValid) {
+                result.add(word);
+            }
+        }
+        return result.toArray(new String[0]);
+    }
+
 
 }
