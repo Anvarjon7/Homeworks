@@ -2,7 +2,7 @@ package de.telran.algorithms.leetcodeTaskSolutions.tasks.array_string;
 
 import java.util.*;
 
-public class EasyTasks {
+public class Easy1 {
     public static void main(String[] args) {
 
         int[] nums1 = {1, 3, 5, 0, 0, 0};
@@ -16,6 +16,19 @@ public class EasyTasks {
         System.out.println(majorityElem(nums2));
 
         System.out.println(convertToTitle(28));
+
+        String[] words = {"Alaska", "zmm", "qwert"};
+
+        System.out.println(Arrays.toString(findWords(words)));
+
+        List<Integer> arr = new ArrayList<>();
+        arr.add(2);
+        arr.add(3);
+        arr.add(-1);
+        arr.add(0);
+        arr.add(-2);
+
+        plusMinus(arr);
 
     }
 
@@ -156,6 +169,33 @@ public class EasyTasks {
             }
         }
         return result.toArray(new String[0]);
+    }
+
+    private static void plusMinus(List<Integer> arr) {
+
+        int n = arr.size();
+        int pos = 0;
+        int neg = 0;
+        int zer = 0;
+
+        for (int num : arr) {
+            if (num > 0) {
+                pos++;
+            } else if (num < 0) {
+                neg++;
+            } else {
+                zer++;
+            }
+
+            double positiveRation = (double) pos / n;
+            double negativeRation = (double) neg / n;
+            double zeroRation = (double) zer / n;
+
+
+            System.out.printf("%.6f%n", positiveRation);
+            System.out.printf("%.6f%n", negativeRation);
+            System.out.printf("%.6f%n", zeroRation);
+        }
     }
 
 
