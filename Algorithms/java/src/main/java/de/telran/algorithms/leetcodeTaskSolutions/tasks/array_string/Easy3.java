@@ -3,6 +3,8 @@ package de.telran.algorithms.leetcodeTaskSolutions.tasks.array_string;
 import javax.xml.stream.events.Characters;
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Easy3 {
 
@@ -13,6 +15,7 @@ public class Easy3 {
         reverseString(s);
 
         System.out.println(String.copyValueOf(s));
+        System.out.println(reverseVowels("Abror"));
     }
 
 
@@ -29,5 +32,34 @@ public class Easy3 {
             left++;
             right--;
         }
+    }
+
+    private static String reverseVowels(String s){
+
+
+        Set<Character> vowels = new HashSet<>(
+                Arrays.asList('a','o','u','e','i','A','O','U','E','I')
+        );
+        char[] chars =  s.toCharArray();
+        int left = 0, right = chars.length - 1;
+
+        while (left < right){
+            while (left < right && !vowels.contains(chars[left])){
+                left++;
+            }
+
+            while (left < right && !vowels.contains(chars[right])){
+                right--;
+            }
+
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+
+            left++;
+            right--;
+        }
+
+        return new String(chars);
     }
 }
