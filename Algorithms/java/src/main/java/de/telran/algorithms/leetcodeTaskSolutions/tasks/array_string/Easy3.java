@@ -2,9 +2,7 @@ package de.telran.algorithms.leetcodeTaskSolutions.tasks.array_string;
 
 import javax.xml.stream.events.Characters;
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Easy3 {
 
@@ -16,6 +14,7 @@ public class Easy3 {
 
         System.out.println(String.copyValueOf(s));
         System.out.println(reverseVowels("Abror"));
+        System.out.println(firstUniqChar("leetcode"));
     }
 
 
@@ -61,5 +60,20 @@ public class Easy3 {
         }
 
         return new String(chars);
+    }
+
+    private static int firstUniqChar(String s){
+
+        Map<Character,Integer> countChar = new HashMap<>();
+
+        for (char c : s.toCharArray()){
+            countChar.put(c, countChar.getOrDefault(c, 0) + 1);
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (countChar.get(s.charAt(i)) == 1){
+                return i;
+            }
+        }
+        return -1;
     }
 }
