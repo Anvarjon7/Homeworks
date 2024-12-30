@@ -15,6 +15,8 @@ public class Easy3 {
         System.out.println(String.copyValueOf(s));
         System.out.println(reverseVowels("Abror"));
         System.out.println(firstUniqChar("leetcode"));
+
+        System.out.println(titleToNumber("AB"));
     }
 
 
@@ -75,5 +77,16 @@ public class Easy3 {
             }
         }
         return -1;
+    }
+
+    private static int titleToNumber(String title){
+        int result = 0;
+
+        for (int i = 0; i < title.length(); i++) {
+            char c = title.charAt(i);
+            result = result * 26 + (c - 'A' + 1);
+        }
+
+        return result;
     }
 }
