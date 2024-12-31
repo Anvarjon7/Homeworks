@@ -17,6 +17,8 @@ public class Easy3 {
         System.out.println(firstUniqChar("leetcode"));
 
         System.out.println(titleToNumber("AB"));
+
+        System.out.println(checkRecord("PPALLP"));
     }
 
 
@@ -88,5 +90,24 @@ public class Easy3 {
         }
 
         return result;
+    }
+
+    private static boolean checkRecord(String s){
+        int countA = 0;
+        int countL = 0;
+
+        for (char c : s.toCharArray()){
+            if (c == 'A'){
+                countA++;
+            } else if (c == 'L') {
+                countL++;
+            }
+        }
+
+        if (countA < 2 && countL < 3){
+            return true;
+        }
+
+        return false;
     }
 }
