@@ -1,5 +1,7 @@
 package de.telran.algorithms.leetcodeTaskSolutions.tasks.array_string;
 
+import de.telran.algorithms.leetcodeTaskSolutions.tasks.TreeNode;
+
 import javax.xml.stream.events.Characters;
 import java.lang.reflect.Array;
 import java.util.*;
@@ -99,15 +101,44 @@ public class Easy3 {
         for (char c : s.toCharArray()){
             if (c == 'A'){
                 countA++;
-            } else if (c == 'L') {
+                if (countA >= 2){
+                    return false;
+                }
+            }
+            if (c == 'L') {
                 countL++;
+                if (countL >= 3){
+                    return false;
+                }
+            }
+            else {
+                countL = 0;
             }
         }
+        return true;
+    }
 
-        if (countA < 2 && countL < 3){
-            return true;
+    public List<String> binaryTreePaths(TreeNode root){
+
+        List<String> paths = new ArrayList<>();
+        if (root == null){
+            return paths;
         }
+        findPaths(root,"",paths);
+        return paths;
+    }
 
-        return false;
+    private void findPaths(TreeNode node, String path, List<String> paths){
+
+        if (node != null){
+            path += Integer.toString(node.val);
+            if (node.left == null && node.right == null){
+                paths.add(path);
+            }else {
+                path += "->";
+                findPaths(node.left, path, paths);
+                findPaths(node.right, path, paths);
+            }
+        }
     }
 }

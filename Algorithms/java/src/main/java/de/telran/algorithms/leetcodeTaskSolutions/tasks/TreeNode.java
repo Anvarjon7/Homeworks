@@ -7,10 +7,10 @@ import java.util.Map;
 
 public class TreeNode {
 
-    int val;
+    public int val;
 
-    TreeNode left;
-    TreeNode right;
+    public TreeNode left;
+    public TreeNode right;
 
     TreeNode(int x) {
         this.val = x;
@@ -88,6 +88,7 @@ class Solution{
 
     static int preOrderIndex;
     static Map<Integer,Integer> inOrderMap;
+
     private static TreeNode buildTree(int[] preOrder, int[] inOrder){
 
         inOrderMap = new HashMap<>();
