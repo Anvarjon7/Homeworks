@@ -10,7 +10,7 @@ public class Easy4 {
         String t = "abcde";
         System.out.println(findTheDifference(s,t));
 
-//        System.out.println(judgeCircle("LL"));
+        System.out.println(judgeCircle("LL"));
 
     }
 
@@ -29,29 +29,28 @@ public class Easy4 {
         return (char) result;
     }
 
-//    private static boolean judgeCircle(String moves){
-//
-//        int upDown = 0;
-//        int rightLeft = 0;
-//
-//        for (int i = 0; i < moves.length(); i++) {
-//            if (moves.charAt(i) == 'U'){
-//                upDown++;
-//            }
-//            if (moves.charAt(i) == 'D'){
-//                upDown--;
-//            }
-//
-//            if (moves.charAt(i) == 'L'){
-//                rightLeft++;
-//            }
-//            if (moves.charAt(i) == 'R'){
-//                rightLeft--;
-//            }
-//        }
-//
-//        return upDown == 0 || rightLeft == 0;
-//    }
+    private static boolean judgeCircle(String moves){
+
+        int x = 0;
+        int y = 0;
+
+        for (char c : moves.toCharArray()){
+            if (c == 'R'){
+                x++;
+            }
+            if (c == 'L'){
+                x--;
+            }
+            if (c == 'U'){
+                y++;
+            }
+            if (c == 'D'){
+                y--;
+            }
+        }
+
+        return x == 0 && y == 0;
+    }
 
 }
 
