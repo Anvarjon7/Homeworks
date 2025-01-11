@@ -21,6 +21,11 @@ public class Easy3 {
         System.out.println(titleToNumber("AB"));
 
         System.out.println(checkRecord("PPALLP"));
+
+        int[] arr = {4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10};
+        String str = "bbbcccdddaaa";
+
+        System.out.println(Arrays.toString(numberOfLines(arr,str)));
     }
 
 
@@ -140,5 +145,23 @@ public class Easy3 {
                 findPaths(node.right, path, paths);
             }
         }
+    }
+
+    private static int[] numberOfLines(int[] width, String s){
+
+        int totalLines = 1; // Start with one line
+        int currentWidth = 0;
+
+        for (char c : s.toCharArray()) {
+            int charWidth = width[c - 'a']; // Get the width of the character
+            if (currentWidth + charWidth > 100) {
+                totalLines++; // Move to a new line
+                currentWidth = charWidth; // Start the new line with the current character's width
+            } else {
+                currentWidth += charWidth; // Add the character's width to the current line
+            }
+        }
+
+        return new int[]{totalLines, currentWidth};
     }
 }
