@@ -18,6 +18,11 @@ public class Easy4 {
         System.out.println(Arrays.toString(findRestaurant(list1, list2)));
 
         System.out.println(countBinarySubstrings("00110011"));
+        String[] words = {"step","steps","stripe","stepple"};
+
+        System.out.println(shortestCompletingWord("1s3 PSt", words));
+
+        System.out.println(reverseWords("Mr Ding"));
 
     }
 
@@ -111,6 +116,63 @@ public class Easy4 {
         }
 
         return builder.toString();
+    }
+
+    private static String shortestCompletingWord(String licensePlate,String[] words){
+
+        Map<Character, Integer> plateLetterCount = new HashMap<>();
+
+        for (char c : licensePlate.toCharArray()){
+            if (Character.isLetter(c)){
+                char lower = Character.toLowerCase(c);
+                plateLetterCount.put(lower, plateLetterCount.getOrDefault(lower, 0) + 1);
+            }
+        }
+        String result = "";
+
+        for (String word : words){
+            if (isCompletingWord(word,plateLetterCount)){
+                if (result.isEmpty() || word.length() < result.length()){
+                    result = word;
+                }
+            }
+        }
+        return result;
+    }
+
+    private static boolean isCompletingWord(String word, Map<Character,Integer> plateLetterCount){
+
+        Map<Character, Integer> wordLetterCount = new HashMap<>();
+
+        for (char c : word.toCharArray()){
+            char lowerChar = Character.toLowerCase(c);
+            if (Character.isLetter(lowerChar)){
+                wordLetterCount.put(lowerChar, wordLetterCount.getOrDefault(lowerChar,0) + 1);
+            }
+        }
+
+        for (Map.Entry<Character,Integer> entry : plateLetterCount.entrySet()){
+            char letter = entry.getKey();
+            int requiredCount = entry.getValue();
+            if (wordLetterCount.getOrDefault(letter, 0) < requiredCount){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static String reverseWords(String s){
+
+        String[] words = s.split(" ");
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            StringBuilder reversedWord = new StringBuilder(word).reverse();
+            result.append(reversedWord).append(" ");
+        }
+
+        return result.toString().trim();
     }
 
 }
