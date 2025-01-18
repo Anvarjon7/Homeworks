@@ -24,6 +24,11 @@ public class Easy4 {
 
         System.out.println(reverseWords("Mr Ding"));
 
+
+
+        System.out.println(Arrays.toString(new List[]{shortestToChar("loveleetcode", 'e')}));
+
+
     }
 
     private static char findTheDifference(String s, String t){
@@ -173,6 +178,31 @@ public class Easy4 {
         }
 
         return result.toString().trim();
+    }
+
+    private static int[] shortestToChar(String s, char c) {
+
+        int ind = s.length();
+        int[] answer = new int[ind];
+        Arrays.fill(answer, Integer.MAX_VALUE);
+
+        int prev = Integer.MIN_VALUE / 2;;
+        for (int i = 0; i < ind; i++) {
+            if (s.charAt(i) == c){
+                prev = i;
+            }
+            answer[i] = Math.abs(i - prev);
+        }
+
+        prev = Integer.MAX_VALUE / 2;
+        for (int i = ind; i >= 0; i--) {
+            if (s.charAt(i) == c){
+                prev = i;
+            }
+            answer[i] = Math.min(answer[i], Math.abs(i - prev));
+        }
+
+        return answer;
     }
 
 }
