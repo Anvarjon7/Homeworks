@@ -26,7 +26,7 @@ public class Easy4 {
 
 
 
-        System.out.println(Arrays.toString(new List[]{shortestToChar("loveleetcode", 'e')}));
+        System.out.println(Arrays.toString(shortestToChar("loveleetcode", 'e')));
 
 
     }
