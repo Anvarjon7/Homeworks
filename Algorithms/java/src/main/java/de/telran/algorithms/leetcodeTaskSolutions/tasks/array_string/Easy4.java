@@ -28,7 +28,7 @@ public class Easy4 {
 
         System.out.println(Arrays.toString(shortestToChar("loveleetcode", 'e')));
 
-        System.out.println(dayOfYear("2019-01-09"));
+        System.out.println(dayOfYear("2019-03-09"));
 
 
     }
