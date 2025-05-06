@@ -9,7 +9,21 @@ public class Easy5 {
     reverse(arr);
     String w = "ABC";
     permutation(w,"");
+    powersOf2(10);
 
+    }
+
+    static int powersOf2(int n){
+        if (n < 1){
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        }else {
+            int prev = powersOf2(n / 2);
+            int curr = prev * 2;
+            System.out.println(curr);
+            return curr;
+        }
     }
 
     static void permutation(String str, String prefix){
